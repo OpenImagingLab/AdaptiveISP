@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>AdaptiveISP: Learning an Adaptive Image Signal Processor for Object Detection
+  </title>
+  <link rel="icon" type="image/x-icon" href="static/images/noise.svg">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link href="static/css/twentytwenty-no-compass.css" rel="stylesheet" type="text/css" />
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+  <script src="static/js/video_comparison.js"></script>
+</head>
+
+<body>
+
+<section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title">AdaptiveISP: Learning an Adaptive Image Signal Processor for Object Detection</h1>
+              <div class="is-size-5 publication-authors">
+                <!-- Paper authors -->
+                <span class="author-block">
+                  Yujin Wang<sup>1</sup>,</span>
+                <span class="author-block">
+                  Tianyi Xu<sup>1,2</sup>,</span>
+                <span class="author-block">
+                  Fan Zhang<sup>1</sup>,</span>
+                <span class="author-block">
+                  <a href="https://tianfan.info/">Tianfan Xue</a><sup>3</sup>,</span>
+                <span class="author-block">
+                  <a href="https://www.gujinwei.org/">Jinwei Gu</a><sup>3</sup>,</span>
+                </div>
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block"><sup>1</sup>Shanghai AI Laboratory,</span>
+                    <span class="author-block"><sup>2</sup>Peking University,</span>
+                    <span class="author-block"><sup>3</sup>The Chinese University of Hong Kong</span>
+                  </div>
+                  <br>
+                    NeurIPS 2024
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                    <span class="link-block">
+                        <a target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>arXiv</span>
+                      </a>
+                    </span>
+                    <span class="link-block">
+                      <a target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fab fa-github"></i>
+                        </span>
+                        <span>Code</span>
+                      </a>
+                    </span>
+                      <!-- <span class="link-block">
+                        <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="ai ai-arxiv"></i>
+                        </span>
+                        <span>arXiv</span>
+                      </a>
+                      </span> -->
+
+                      <!-- <span class="link-block">
+                        <a target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="far fa-images"></i>
+                      </span>
+                      <span>Data (coming within 2 weeks)</span> -->
+                          <!-- </a>
+                      </span>  -->
+                  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+<!-- Paper abstract -->
+<section class="section hero is-small">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Image Signal Processors (ISPs) convert raw sensor signals into digital images, 
+            which significantly influence the image quality and the performance of downstream computer vision tasks. 
+            Designing ISP pipeline and tuning ISP parameters are two key steps for building an imaging and vision system. 
+            To find optimal ISP configurations, recent works use deep neural networks as a proxy to search for ISP parameters or ISP pipelines. 
+            However, these methods are primarily designed to maximize the image quality, which are sub-optimal in the performance of high-level computer vision tasks such as detection, recognition, and tracking. 
+            Moreover, after training, the learned ISP pipelines are mostly fixed at the inference time, whose performance degrades in dynamic scenes. 
+            To jointly optimize ISP structures and parameters, we propose AdaptiveISP, a task-driven and scene-adaptive ISP. 
+            One key observation is that for the majority of input images, only a very few processing modules are needed to improve the performance of downstream recognition tasks, and only a few inputs require more processing. 
+            Based on this, AdaptiveISP utilizes deep reinforcement learning to automatically generate an optimal ISP pipeline and the associated ISP parameters to maximize the detection performance. 
+            Experimental results show that AdaptiveISP not only surpasses the prior state-of-the-art methods for object detection but also dynamically manages the trade-off between detection performance and computational cost, especially suitable for scenes with large dynamic range variations.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<!-- Main idea -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Main idea</h2>
+      <div class="row">
+        <div class="col-lg-16 text-white">
+          <img class="img-fluid mb-3" src="static/images/teaser-v4.svg" alt="" >
+        </div>
+      </div>      
+      <div class="content has-text-justified is-four-fifths">
+        <p>
+          <strong>AdaptiveISP</strong> takes a raw image as input and automatically generates an optimal ISP pipeline &Mu; and the associated ISP parameters &Theta;
+          to maximize the detection performance for any given pre-trained object detection network with deep reinforcement learning. 
+          <strong>AdaptiveISP</strong> achieved mAP@0.5 of 71.4 on the dataset LOD dataset, while a baseline method with a fixed ISP pipeline and optimized parameters can only achieve mAP@0.5 of 70.1.
+          Note that <strong>AdaptiveISP</strong> predicts the ISP for the image captured under normal light requires a CCM module, while the ISP for the image captured under low light requires a Desaturation module.
+        </p>
+      </div>
+  </div>
+  </div>
+</section>
+
+  
+<!-- Youtube video -->
+<section class="hero is-small is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <!-- Paper video. -->
+      <h2 class="title is-3">Video Presentation</h2>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <!-- <div class="publication-video"> -->
+            <!-- Youtube embed code here -->
+            <!-- <iframe src="https://www.youtube.com/embed/ro_XeA75s5w?si=HAR0LF3s3h5Jk6z1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+          <!-- </div> -->
+          <video poster="" id="tree" autoplay controls muted loop height="100%">
+            <!-- Your video here -->
+            <source src="./static/videos/Adpative-video-final.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End youtube video -->
+
+
+<!--BibTex citation -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{wang2024adaptiveisp,
+      title={AdaptiveISP: Learning an Adaptive Image Signal Processor for Object Detection}, 
+      author={Yujin Wang and Tianyi Xu and Fan Zhang and Tianfan Xue and Jinwei Gu},
+      booktitle={Conference on Neural Information Processing Systems},
+      year={2024}
+}</code></pre>
+  </div>
+</section>
+<!--End BibTex citation -->
+
+
+<footer class="footer">
+<div class="container">
+  <div class="columns is-centered">
+    <div class="column is-8">
+      <div class="content" style="text-align: center;">
+        <p>
+          This website was modified from <a href="https://nerfies.github.io" target="_blank">Nerfies</a>. Thanks for sharing this fantastic template. <br> 
+          Also, this website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+          Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+</footer>
+  <!-- End image carousel -->
+
+  <script src="static/js/jquery.min.js"></script>
+  <script src="static/js/jquery.event.move.js"></script>
+  <script src="static/js/jquery.twentytwenty.js"></script>
+  <script>
+    $(window).load(function(){
+      $(".twentytwenty-container[data='raw-ours']").twentytwenty({default_offset_pct: 0.38, before_label: "Raw-domian Denoising", after_label: "Dual-domian Denoising (Ours)", move_slider_on_hover: false, click_to_move: true});
+      $(".twentytwenty-container[data='sRGB-ours']").twentytwenty({default_offset_pct: 0.38, before_label: "sRGB-domian Denoising", after_label: "Dual-domian Denoising (Ours)", move_slider_on_hover: false, click_to_move: true});
+      $(".twentytwenty-container[data='ISP-ours']").twentytwenty({default_offset_pct: 0.38, before_label: "Camera ISPs", after_label: "DualDn (Ours)", move_slider_on_hover: false, click_to_move: true});
+    });
+    </script>
+
+</body>
+
+</html>
