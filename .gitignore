@@ -36,7 +36,6 @@ experiments
 outputs
 output
 output_results
-docs
 tmp
 *.out
 results
