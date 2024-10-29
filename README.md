@@ -1,5 +1,5 @@
 # [NeurIPS2024] AdaptiveISP: Learning an Adaptive Image Signal Processor for Object Detection
-### [Project Page](https://openimaginglab.github.io/AdaptiveISP/) | [Video]() | [Paper]() | [Data](https://pan.baidu.com/s/1tQieluAmQlg_aqmsU0iWyQ?pwd=nips) <br>
+### [Project Page](https://openimaginglab.github.io/AdaptiveISP/) | [Paper]() | [Data](https://pan.baidu.com/s/1tQieluAmQlg_aqmsU0iWyQ?pwd=nips) <br>
 
 Yujin Wang, Tianyi Xu, Fan Zhang, Tianfan Xue, Jinwei Gu <br><br>
 
@@ -59,11 +59,19 @@ To train the AdaptiveISP model:
 ### Test
 Test the AdaptiveISP model on LOD dataset:
 1. Modify the dataroot yolov3/data/lod.yaml
+2. Download the pretrained model and put in pretrained folder. 
+
+    - [ckpt-lod-df-1.0](https://github.com/OpenImagingLab/AdaptiveISP/releases/download/v1.0/ckpt-lod-df-0.98.pth): training with discount facotr(1.0)
+
+    - [ckpt-lod-df-0.98](https://github.com/OpenImagingLab/AdaptiveISP/releases/download/v1.0/ckpt-lod-df-1.0.pth): training with discount facotr (0.98)
+
+    - [yolov3](https://github.com/OpenImagingLab/AdaptiveISP/releases/download/v1.0/yolov3.pt): pretrined model on COCO
+
 2. Run
     ```bash
     CUDA_VISIBLE_DEVICES=0 python yolov3/val_adaptiveisp.py \
         --project=results \
-        --isp_weights=pretrained/ckpt-df-1.0.pth \
+        --isp_weights=pretrained/ckpt-lod-df-1.0.pth \
         --data_name=lod \
         --data=yolov3/data/lod.yaml \
         --batch-size=1 \
@@ -71,9 +79,6 @@ Test the AdaptiveISP model on LOD dataset:
         --name=adptiveisp \
         --save_image \
         --save_param
-
-    ckpt-df-1.0.pth: training with discount facotr(1.0)
-    ckpt-df-0.98.pth: training with discount facotr (0.98)
     ```
 
 ## Citations
