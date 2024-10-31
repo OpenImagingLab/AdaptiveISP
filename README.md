@@ -1,5 +1,5 @@
 # [NeurIPS2024] AdaptiveISP: Learning an Adaptive Image Signal Processor for Object Detection
-### [Project Page](https://openimaginglab.github.io/AdaptiveISP/) | [Paper]() | [Data](https://pan.baidu.com/s/1tQieluAmQlg_aqmsU0iWyQ?pwd=nips) <br>
+### [Project Page](https://openimaginglab.github.io/AdaptiveISP/) | [Paper](https://arxiv.org/pdf/2410.22939) | [Data](https://pan.baidu.com/s/1tQieluAmQlg_aqmsU0iWyQ?pwd=nips) <br>
 
 Yujin Wang, Tianyi Xu, Fan Zhang, Tianfan Xue, Jinwei Gu <br><br>
 
@@ -13,7 +13,7 @@ Image Signal Processors (ISPs) convert raw sensor signals into digital images, w
 Designing ISP pipeline and tuning ISP parameters are two key steps for building an imaging and vision system.
 To find optimal ISP configurations, recent works use deep neural networks as a proxy to search for ISP parameters or ISP pipelines. However, these methods are primarily designed to maximize the image quality, which are sub-optimal in the performance of high-level computer vision tasks such as detection, recognition, and tracking. Moreover, after training, the learned ISP pipelines are mostly fixed at the inference time, whose performance degrades in dynamic scenes. 
 To jointly optimize ISP structures and parameters, we propose AdaptiveISP, a task-driven and scene-adaptive ISP. 
-One key observation is that for the majority of input images, only a very few processing modules are needed to improve the performance of downstream recognition tasks, and only a few inputs require more processing.
+One key observation is that for the majority of input images, only a few processing modules are needed to improve the performance of downstream recognition tasks, and only a few inputs require more processing.
 Based on this, AdaptiveISP utilizes deep reinforcement learning to automatically generate an optimal ISP pipeline and the associated ISP parameters to maximize the detection performance. Experimental results show that AdaptiveISP not only surpasses the prior state-of-the-art methods for object detection but also dynamically manages the trade-off between detection performance and computational cost, especially suitable for scenes with large dynamic range variations.
 
 ## Installation
