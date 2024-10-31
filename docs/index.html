@@ -43,7 +43,7 @@
                 <span class="author-block">
                   Fan Zhang<sup>1</sup>,</span>
                 <span class="author-block">
-                  <a href="https://tianfan.info/">Tianfan Xue</a><sup>3</sup>,</span>
+                  <a href="https://tianfan.info/">Tianfan Xue</a><sup>3,1</sup>,</span>
                 <span class="author-block">
                   <a href="https://www.gujinwei.org/">Jinwei Gu</a><sup>3</sup>,</span>
                 </div>
@@ -57,7 +57,7 @@
                   <div class="column has-text-centered">
                     <div class="publication-links">
                     <span class="link-block">
-                        <a target="_blank"
+                        <a href="https://arxiv.org/abs/2410.22939" target="_blank"
                         class="external-link button is-normal is-rounded is-dark">
                         <span class="icon">
                           <i class="fas fa-file-pdf"></i>
@@ -66,7 +66,7 @@
                       </a>
                     </span>
                     <span class="link-block">
-                      <a target="_blank"
+                      <a href="https://github.com/OpenImagingLab/AdaptiveISP" target="_blank"
                         class="external-link button is-normal is-rounded is-dark">
                         <span class="icon">
                           <i class="fab fa-github"></i>
@@ -125,7 +125,7 @@
             However, these methods are primarily designed to maximize the image quality, which are sub-optimal in the performance of high-level computer vision tasks such as detection, recognition, and tracking. 
             Moreover, after training, the learned ISP pipelines are mostly fixed at the inference time, whose performance degrades in dynamic scenes. 
             To jointly optimize ISP structures and parameters, we propose AdaptiveISP, a task-driven and scene-adaptive ISP. 
-            One key observation is that for the majority of input images, only a very few processing modules are needed to improve the performance of downstream recognition tasks, and only a few inputs require more processing. 
+            One key observation is that for the majority of input images, only a few processing modules are needed to improve the performance of downstream recognition tasks, and only a few inputs require more processing. 
             Based on this, AdaptiveISP utilizes deep reinforcement learning to automatically generate an optimal ISP pipeline and the associated ISP parameters to maximize the detection performance. 
             Experimental results show that AdaptiveISP not only surpasses the prior state-of-the-art methods for object detection but also dynamically manages the trade-off between detection performance and computational cost, especially suitable for scenes with large dynamic range variations.
           </p>
