@@ -29,7 +29,7 @@ pip install -r requirements.txt
 ```
 
 ## Prepare Dataset
-1. Download the LOD dataset from [Baidu Drive](https://pan.baidu.com/s/1tQieluAmQlg_aqmsU0iWyQ?pwd=nips).
+1. Download the LOD dataset from [Baidu Drive](https://pan.baidu.com/s/1tQieluAmQlg_aqmsU0iWyQ?pwd=nips) or [OneDrive](https://1drv.ms/u/s!Aq1PSygduHX9czHB9WkUNUTUx8o?e=KURDwo).
 2. Unzip the LOD, and modify the dataroot yolov3/data/lod.yaml
 
 ## Training and Test
